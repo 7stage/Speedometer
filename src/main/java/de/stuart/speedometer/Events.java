@@ -17,6 +17,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.concurrent.TimeUnit;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,12 +64,13 @@ public class Events implements Listener {
                     if(player.getUniqueId().toString().equalsIgnoreCase(split[2])){
                         if(vehicle.getMainStand().getCustomName().contains(split[3])){
                             Location start = event.getFrom();
+                            TimeUnit.SECONDS.sleep(1);
                             Location end = event.getTo().clone();
                             
                             start.setY(0);
                             end.setY(0);
                             
-                            finalspeed = start.distance(end);
+                            finalspeed = start.distance(end) / 20;
                         }
                     }
                 }
