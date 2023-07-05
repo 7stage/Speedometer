@@ -32,6 +32,7 @@ public class Events implements Listener {
 
     static int fuel;
     static int amount;
+    static double firstspeed;
     static double finalspeed;
     
     private static Main plugin = Main.instance;
@@ -64,17 +65,13 @@ public class Events implements Listener {
                     if(player.getUniqueId().toString().equalsIgnoreCase(split[2])){
                         if(vehicle.getMainStand().getCustomName().contains(split[3])){
                             Location start = event.getFrom();
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
                             Location end = event.getTo().clone();
                             
                             start.setY(0);
                             end.setY(0);
                             
-                            finalspeed = start.distance(end) / 20;
+                            firstspeed = start.distance(end)*20;
+                            finalspeed = firstspeed*0.05
                         }
                     }
                 }
