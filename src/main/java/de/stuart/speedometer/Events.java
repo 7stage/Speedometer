@@ -64,7 +64,11 @@ public class Events implements Listener {
                     if(player.getUniqueId().toString().equalsIgnoreCase(split[2])){
                         if(vehicle.getMainStand().getCustomName().contains(split[3])){
                             Location start = event.getFrom();
-                            TimeUnit.SECONDS.sleep(1);
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                             Location end = event.getTo().clone();
                             
                             start.setY(0);
