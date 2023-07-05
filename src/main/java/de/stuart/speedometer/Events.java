@@ -68,7 +68,7 @@ public class Events implements Listener {
                             start.setY(0);
                             end.setY(0);
                             
-                            finalspeed = start.distance(end) * 20;
+                            finalspeed = start.distance(end);
                         }
                     }
                 }
