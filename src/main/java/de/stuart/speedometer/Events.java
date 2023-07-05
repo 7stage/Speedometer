@@ -17,7 +17,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.concurrent.TimeUnit;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,8 +69,7 @@ public class Events implements Listener {
                             start.setY(0);
                             end.setY(0);
                             
-                            firstspeed = start.distance(end)*20;
-                            finalspeed = firstspeed*0.05;
+                            finalspeed = start.distance(end);
                         }
                     }
                 }
@@ -105,7 +103,7 @@ public class Events implements Listener {
                         bar = plugin.getConfig().getString("Config.speedOnlyBar");
                     }
                     assert bar != null;
-                    bar = bar.replace("{speed}", speedC + String.format("%,.0f", finalspeed));
+                    bar = bar.replace("{speed}", speedC + String.format("%,.1f", finalspeed));
                     player.sendActionBar(ChatColor.translateAlternateColorCodes('&', bar));
                 } else {
                     cancel();
